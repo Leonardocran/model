@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 import numpy as np
 import requests
 from io import BytesIO
@@ -7,12 +7,13 @@ from PIL import Image
 from tensorflow.keras.applications import VGG19
 from tensorflow.keras.applications.vgg19 import preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing import image as keras_image
+import os
 
 # Load model
 model = VGG19(weights='imagenet')
 
 app = Flask(__name__)
-CORS(app)  # Allow all origins (for dev use)
+CORS(app)  # Allow all origins (for development & production)
 
 def predict_from_url(url):
     try:
@@ -47,5 +48,11 @@ def predict():
     results = predict_from_url(url)
     return jsonify(results)
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "AI Model API is running!"})
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Render sets the PORT environment variable automatically
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
