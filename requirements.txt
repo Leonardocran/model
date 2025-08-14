@@ -13,5 +13,4 @@ streamlit         # If you're using Streamlit (choose one)
 flask-cors
 # Image handling
 Pillow
-requests
-gunicorn            # For working with uploaded images
+requests       # For working with uploaded images
