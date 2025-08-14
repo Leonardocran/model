@@ -10,6 +10,8 @@ scikit-learn
 # (Optional) Web App
 flask             # If you're using Flask
 streamlit         # If you're using Streamlit (choose one)
-
+flask-cors
 # Image handling
-Pillow            # For working with uploaded images
+Pillow
+requests
+gunicorn            # For working with uploaded images
