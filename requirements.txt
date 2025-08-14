@@ -1,0 +1,15 @@
+# Core libraries
+numpy
+pandas
+matplotlib
+
+# Machine Learning
+tensorflow  # Or the latest stable version
+scikit-learn
+
+# (Optional) Web App
+flask             # If you're using Flask
+streamlit         # If you're using Streamlit (choose one)
+
+# Image handling
+Pillow            # For working with uploaded images
